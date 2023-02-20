@@ -5,9 +5,15 @@ import { BiChevronRight, BiAlarmExclamation } from "react-icons/bi";
 import { useState } from 'react';
 
 const StBody = styled.div`
-margin-left: 10px;
+margin: 0px 0 0 10px;
+
+
 position: ${props => props.fixed};
 z-index: 0;
+width: 100vw;
+height: 100vh;
+
+
 
 `
 
@@ -296,7 +302,9 @@ function App() {
 
         }}>
           <label style={{ display: 'flex', alignItems: 'center' }}>이름</label> <StInput id='nameVal' type='text' value={name} onChange={(e) => {
+            // const value = e.target.value.replaceAll(/[0-9]/g, '')
             setName(e.target.value)
+            // setName(value)
           }}></StInput>
           <label style={{ display: 'flex', alignItems: 'center' }}>가격</label> <StInput
             id='priceVal' value={price} onChange={(e) => {
@@ -309,7 +317,7 @@ function App() {
 
 
 
-            }} type='text'></StInput> <Button size='small' btcl={green} onClick={() => {
+            }} type='text' autoComplete='off'></StInput> <Button size='small' btcl={green} onClick={() => {
               if (!name || !price) {
                 alert('공백채워라')
               } else {
